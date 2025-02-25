@@ -3,7 +3,7 @@ from random import shuffle
 
 """
 # GOAL MINE
-That's why you should not play games of chance
+Probability of winning the game
 """
 
 
