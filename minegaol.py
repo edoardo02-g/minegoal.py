@@ -185,18 +185,3 @@ with st.expander("Simulation Statistics"):
         st.session_state.simulation_history = []
         st.rerun()
 
-amount_played = st.number_input("How much do you want to play? ", min_value=0.0)
-
-# Calcola il valore atteso solo se ci sono simulazioni
-if st.session_state.simulation_results['total'] > 0:
-    win_rate = st.session_state.simulation_results['wins'] / st.session_state.simulation_results['total']
-    
-    prob_6x = win_rate / 3
-    prob_12x = win_rate / 3
-    prob_20x = win_rate / 3
-    
-    expected_value = (prob_6x * 6 * amount_played) + (prob_12x * 12 * amount_played) + (prob_20x * 20 * amount_played) + ((1 - win_rate) * (-amount_played))
-    
-    st.write(f"Expected value of the game: {expected_value:.2f}")
-else:
-    st.write("Run simulations first to calculate expected value")
